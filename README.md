@@ -96,17 +96,25 @@ these differences are descriptive rather than strong statistical claims.
 
 ## Demo Rollouts
 
-The following videos are representative closed-loop rollouts from task 0 of
-the Stage 2 full-suite evaluation. Both use the fine-tuned checkpoint and the
-same evaluation protocol reported above.
+These are representative closed-loop rollouts from the Stage 2 full-suite
+evaluation. They cover several LIBERO-Spatial tasks under the same protocol
+reported above.
 
-- [Successful rollout](assets/stage2_task0_success.mp4) — the policy completes
-  the LIBERO task and receives a success reward.
-- [Failure rollout](assets/stage2_task0_failure.mp4) — a representative episode
-  in which the policy does not satisfy the task predicate before termination.
+| Task | Outcome | Video |
+| ---: | --- | --- |
+| 0 | Success | [Watch rollout](assets/stage2_task0_success.mp4) |
+| 0 | Failure | [Watch rollout](assets/stage2_task0_failure.mp4) |
+| 1 | Success | [Watch rollout](assets/stage2_task1_success.mp4) |
+| 2 | Success | [Watch rollout](assets/stage2_task2_success.mp4) |
+| 5 | Success | [Watch rollout](assets/stage2_task5_success.mp4) |
+| 7 | Success | [Watch rollout](assets/stage2_task7_success.mp4) |
+| 9 | Success | [Watch rollout](assets/stage2_task9_success.mp4) |
 
-The failure video is retained alongside the successful example to show the
-observed behavior honestly rather than presenting only a selected success.
+Task 5 is included because it is the hardest task for both compared policies
+in this evaluation. The task-0 failure is retained alongside successful
+examples to show observed behavior honestly rather than presenting only
+selected successes. These files are the original simulator recordings; they
+are not artificially upscaled.
 
 ## Project Structure
 
