@@ -94,6 +94,20 @@ largest observed gap is four successes on task 0, followed by three-success
 gaps on tasks 3 and 6. Because each per-task estimate uses only ten episodes,
 these differences are descriptive rather than strong statistical claims.
 
+## Demo Rollouts
+
+The following videos are representative closed-loop rollouts from task 0 of
+the Stage 2 full-suite evaluation. Both use the fine-tuned checkpoint and the
+same evaluation protocol reported above.
+
+- [Successful rollout](assets/stage2_task0_success.mp4) — the policy completes
+  the LIBERO task and receives a success reward.
+- [Failure rollout](assets/stage2_task0_failure.mp4) — a representative episode
+  in which the policy does not satisfy the task predicate before termination.
+
+The failure video is retained alongside the successful example to show the
+observed behavior honestly rather than presenting only a selected success.
+
 ## Project Structure
 
 ```text
