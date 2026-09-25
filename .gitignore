@@ -1,0 +1,61 @@
+# Local configuration and secrets
+configs/*.env
+!configs/*.env.example
+.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Training outputs and model weights
+outputs/
+checkpoints/
+wandb/
+*.safetensors
+*.safetensors.index.json
+*.pt
+*.pth
+*.ckpt
+*.bin
+optimizer_state*
+
+# Datasets and caches
+data/
+datasets/
+cache/
+.cache/
+huggingface/
+
+# Bulk evaluation media
+videos/
+recordings/
+*.avi
+*.mkv
+
+# Keep only deliberately selected MP4 files under assets
+*.mp4
+!assets/*.mp4
+
+# Temporary logs and export archives
+*.tmp
+*.tar
+*.tar.gz
+*.zip
+artifacts/export/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Keep empty tracked directories
+!assets/.gitkeep
+!artifacts/.gitkeep

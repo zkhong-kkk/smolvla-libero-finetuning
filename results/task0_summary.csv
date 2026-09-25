@@ -1,0 +1,4 @@
+model,training_stage,suite,task_id,seed,n_episodes,n_success,success_rate_percent,ci95_low_percent,ci95_high_percent,status
+released_smolvla_libero,reference,libero_spatial,0,42,10,10,100.0,72.2,100.0,confirmed
+fine_tuned_smolvla,stage1_20k_recovery_from_5k,libero_spatial,0,42,10,2,20.0,5.7,51.0,confirmed
+fine_tuned_smolvla,stage2_50k_from_stage1,libero_spatial,0,42,10,6,60.0,31.3,83.2,confirmed
