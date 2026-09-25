@@ -308,13 +308,30 @@ The 65% versus 80% result is the full-suite comparison, while 20%→60% is the t
 
 ## 10. Limitations and Next Steps
 
-Current limitations are the missing archived per-task breakdown, offline rather than closed-loop robustness testing, the absence of real-robot data, and the lack of controlled hyperparameter ablations.
+Current limitations are the ten-episode sample size for each individual task,
+offline rather than closed-loop robustness testing, the absence of real-robot
+data, and the lack of controlled hyperparameter ablations.
+
+The archived per-task success counts for task IDs 0--9 are
+`6, 8, 8, 6, 6, 2, 7, 8, 7, 7` for the fine-tuned policy and
+`10, 10, 9, 9, 7, 1, 10, 8, 8, 8` for the released reference. The fine-tuned
+policy exceeds the reference by one success on task 5 and matches it on task 7.
+The largest observed gap is four successes on task 0, followed by
+three-success gaps on tasks 3 and 6. These per-task differences are diagnostic
+rather than strong statistical claims.
 
 The next priorities are:
 
-1. archive both models' per-task results and inspect the largest failure gaps;
+1. inspect success and failure videos for tasks 0, 3, and 6;
 2. inject brightness and camera-failure corruptions into live rollouts;
-3. keep large weights on Hugging Face Hub or GitHub Releases and store only code, configs, small logs, and selected videos in Git.
+3. increase the episode count for the largest per-task gaps;
+4. keep large weights on Hugging Face Hub and store only code, configs, small logs, and selected videos in Git.
+
+The final Stage 2 checkpoint is published at
+[zkhomh-kkk/smolvla-libero-spatial-stage2](https://huggingface.co/zkhomh-kkk/smolvla-libero-spatial-stage2).
+It includes the SafeTensors weights, policy configuration, preprocessing and
+postprocessing state, tokenizer, and training configuration required for
+LeRobot loading.
 
 ## 11. Conclusion
 

@@ -29,8 +29,8 @@ All three policies were evaluated on:
 The Stage 2 checkpoint improves the observed success rate by 40 percentage
 points over Stage 1. This is a useful engineering signal, but the confidence
 intervals overlap because only 10 episodes were evaluated. The result should be
-described as a preliminary single-task improvement until the full suite is
-complete.
+described as a controlled single-task stage comparison, not as the overall
+model score.
 
 ## Full-Suite Evaluation
 
@@ -48,13 +48,31 @@ The released checkpoint is 15 percentage points higher under the same
 the effect of training stage, while the 65%/80% comparison is the primary
 full-suite result.
 
-The overall Stage 2 values are recorded in `results/spatial_suite_summary.csv`.
-The final archive should also include:
+| Task ID | Stage 2 successes | Released successes | Difference |
+| ---: | ---: | ---: | ---: |
+| 0 | 6/10 | 10/10 | -4 |
+| 1 | 8/10 | 10/10 | -2 |
+| 2 | 8/10 | 9/10 | -1 |
+| 3 | 6/10 | 9/10 | -3 |
+| 4 | 6/10 | 7/10 | -1 |
+| 5 | 2/10 | 1/10 | +1 |
+| 6 | 7/10 | 10/10 | -3 |
+| 7 | 8/10 | 8/10 | 0 |
+| 8 | 7/10 | 8/10 | -1 |
+| 9 | 7/10 | 8/10 | -1 |
+
+The per-task breakdown is archived in
+`results/spatial_per_task_summary.csv`. Task 0 has the largest observed gap;
+tasks 3 and 6 are the next priorities for video-based failure analysis. These
+diagnostics use only ten episodes per task and should not be over-interpreted.
+
+The overall values are recorded in `results/spatial_suite_summary.csv`. The
+archived evaluation artifacts include:
 
 - overall success rate;
 - number of successes and episodes;
 - Wilson confidence interval;
-- per-task success rates;
+- per-task success rates for both policies;
 - evaluation duration;
 - exact checkpoint path and training step;
 - LeRobot commit and Python environment.

@@ -10,6 +10,10 @@ the training server. The recommended workflow is:
 4. Never commit access tokens, private SSH keys, `.env` files, or Hugging Face
    credentials.
 
+The final Stage 2 checkpoint is hosted at
+[zkhomh-kkk/smolvla-libero-spatial-stage2](https://huggingface.co/zkhomh-kkk/smolvla-libero-spatial-stage2).
+Only the link and small checkpoint metadata belong in this Git repository.
+
 ## Before the First Push
 
 ```bash

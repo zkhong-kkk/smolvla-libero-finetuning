@@ -49,6 +49,8 @@ representative videos under `assets/`.
 
 Use Hugging Face Hub, GitHub Releases, or Git LFS if model weights must be
 published. Hugging Face Hub is the preferred option for a LeRobot checkpoint.
+The final Stage 2 checkpoint for this project is already published at
+[zkhomh-kkk/smolvla-libero-spatial-stage2](https://huggingface.co/zkhomh-kkk/smolvla-libero-spatial-stage2).
 
 ## Expected Local Layout
 

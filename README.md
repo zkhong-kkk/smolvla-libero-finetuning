@@ -16,6 +16,19 @@ robustness testing.
 - [English Technical Report](docs/TECHNICAL_REPORT_EN.md)
 - [Evaluation Guide / 评测指南](docs/EVALUATION_GUIDE.md)
 - [Training Configuration / 训练配置](docs/TRAINING_CONFIGURATION.md)
+- [Hugging Face Model Card](docs/HUGGINGFACE_MODEL_CARD.md)
+
+## Released Checkpoint
+
+The final Stage 2 policy is published on Hugging Face:
+
+- [zkhomh-kkk/smolvla-libero-spatial-stage2](https://huggingface.co/zkhomh-kkk/smolvla-libero-spatial-stage2)
+
+Use the Hub repository ID anywhere LeRobot accepts a policy path:
+
+```bash
+MODEL_PATH="zkhomh-kkk/smolvla-libero-spatial-stage2"
+```
 
 ## What This Project Adds
 
@@ -61,6 +74,26 @@ The local policy reaches 81.25% of the released checkpoint's success rate
 (65/80). This is a useful single-GPU result across the complete ten-task suite,
 not a success limited to one selected task.
 
+Per-task successes under the same 10-episode protocol are:
+
+| Task ID | Fine-tuned Stage 2 | Released reference |
+| ---: | ---: | ---: |
+| 0 | 6/10 | 10/10 |
+| 1 | 8/10 | 10/10 |
+| 2 | 8/10 | 9/10 |
+| 3 | 6/10 | 9/10 |
+| 4 | 6/10 | 7/10 |
+| 5 | 2/10 | 1/10 |
+| 6 | 7/10 | 10/10 |
+| 7 | 8/10 | 8/10 |
+| 8 | 7/10 | 8/10 |
+| 9 | 7/10 | 8/10 |
+
+The fine-tuned policy matches or exceeds the reference on tasks 5 and 7. The
+largest observed gap is four successes on task 0, followed by three-success
+gaps on tasks 3 and 6. Because each per-task estimate uses only ten episodes,
+these differences are descriptive rather than strong statistical claims.
+
 ## Project Structure
 
 ```text
@@ -73,12 +106,14 @@ not a success limited to one selected task.
 |   |-- DOWNLOAD_FROM_SERVER.md    # Files to retrieve after evaluation
 |   |-- EXPERIMENTS.md             # Experiment protocol and interpretation
 |   |-- GITHUB_UPLOAD.md           # Safe repository upload workflow
+|   |-- HUGGINGFACE_MODEL_CARD.md  # Model card for the published checkpoint
 |   |-- EVALUATION_GUIDE.md        # Chinese-first bilingual evaluation guide
 |   |-- TRAINING_CONFIGURATION.md  # Verified training lineage and parameters
 |   |-- TECHNICAL_REPORT_ZH.md     # Detailed Chinese technical report
 |   `-- TECHNICAL_REPORT_EN.md     # Matching English technical report
 |-- results/
 |   |-- robustness_summary.csv     # Offline corruption experiment results
+|   |-- spatial_per_task_summary.csv # Per-task fine-tuned/reference comparison
 |   |-- task0_summary.csv          # Confirmed task-0 results
 |   `-- spatial_suite_summary.csv  # Confirmed full-suite result and reference status
 |-- scripts/
@@ -161,15 +196,17 @@ and maps the two simulator image keys to `camera1` and `camera2`.
 - Full-suite results should be reported separately from the preliminary
   single-task result.
 - Model weights, optimizer states, datasets, caches, and complete video folders
-  are intentionally excluded from Git.
+  are intentionally excluded from Git. The final policy is hosted separately
+  on Hugging Face.
 
 ## Limitations
 
-- The current confirmed comparison covers only one LIBERO-Spatial task.
-- Ten episodes produce wide confidence intervals.
+- Each per-task estimate uses ten episodes and therefore has a wide confidence
+  interval, although the overall comparison covers 100 episodes.
 - The released reference model and the fine-tuned model may differ in training
   compute and data exposure, so the comparison is not a controlled ablation of
   model architecture.
+- The robustness study is offline rather than a corrupted closed-loop rollout.
 - Simulation success does not directly establish real-robot performance.
 
 ## License
